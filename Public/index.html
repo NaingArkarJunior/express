@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script> 
+    <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> 
+    <title>Login</title>
+</head>
+<body class="bgColor text-black">
+  <div class="container" style="height: 100%;">
+      <div class="d-flex justify-content-center align-items-center py-5" style="height: 100%;">
+              <div class="col-sm-6 py-5">
+                  <div class="d-flex flex-column justify-content-center px-5">
+                      <h3 class="h1 text-center" style="font-family: 'Courgette', cursive;">Sign in</h3>
+                      <div class="mb-2">
+                          <label for="username">username</label>
+                          <input type="text" class="form-control" id="username" placeholder="username">
+                      </div>
+                      <div class="mb-2">
+                          <label for="password">Password</label>
+                          <input type="password" class="form-control" id="password" placeholder="Password">
+                      </div>
+                      <button id="sumbit" class="btn btn-primary rounded-1">Sumbit</button>
+                      <br>
+                      <div class="d-flex justify-content-center">
+                          <span>already account ?</span>
+                          <a href="./register.html" style="margin-left: 5px;">Register Here</a>
+                      </div>
+              </div>
+
+          </div>
+      </div>
+  </div>
+</body>
+    <script src="./apicall.js" ></script>
+    <script>
+
+    $(document).ready(()=>{
+        $("#log_in").click(()=>{
+            let param = loginInfo();
+            if(param)submitLogin (param.name,param.password)    
+            else  alert("Invalid Data")
+        })
+    })
+
+    function loginInfo(){
+        let name = $("#name").val()
+        if (!name){
+        return null;
+        }
+        let password = $("#pwd").val()
+        if (!password){
+        return null;
+        }
+        return {
+        name,password
+        }
+    }
+</script>
+</html>
