@@ -6,7 +6,7 @@ import { getUserLogin,createUser,getRatesData, getRates } from "./DBAccessor";
 import bodyParser from "body-parser";  
 import jwt from 'jsonwebtoken'
 import path from "path";
-import { resSuccess } from "./utils";
+import { resFail, resSuccess } from "./utils";
 export const app: Application = express();
 
 const APP_PASSWORD = "@token"
@@ -16,7 +16,7 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.listen(8000,'192.168.100.31',()=>{
+app.listen(8000,()=>{
     console.log("server start...")
 })
 
@@ -37,14 +37,16 @@ app.get('/rates', function(req, res) {
 });
 
 
-
 app.get("/rates/last",(req,res)=>{
     getRates((err,data)=>{
         if(data)  {
             let resData = data[0]
             resData.rates = JSON.parse(resData.rates)
             resData.currency = "MMK"
-            res.send(resSuccess(resData))
+            return res.send(resSuccess(resData))
+        }
+        else{
+            return res.send(resFail(err))
         }
      
     })
