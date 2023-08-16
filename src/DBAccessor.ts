@@ -1,15 +1,24 @@
 import mysql from 'mysql2'
 import { UserData, RatesData } from './Types/UserData';
 
-function DBConnection(){
-    return mysql.createConnection({
-      host:"localhost",
-      user:"root",
-      password:"admin",
-      database:"exchange"
-    })
-}
+// function DBConnection(){
+//     return mysql.createConnection({
+//       host:"localhost",
+//       user:"root",
+//       password:"admin",
+//       database:"exchange"
+//     })
+// }
 
+
+function DBConnection(){
+  return mysql.createConnection({
+    host:"ls-65276eff769540c8ea5a37c47c6ff839f83c10e0.c0pcvmzezm97.us-east-1.rds.amazonaws.com",
+    user:"dbmasteruser",
+    password:"xwo=Am?8h?m~pkZ%wX=FLQ%}X.l1T=_h",
+    database:"exchange"
+  })
+}
 
 
   export const getUserLogin = (name:string,password:string,cb:(err:mysql.QueryError|null,results:UserData[]|null)=>void)=>{

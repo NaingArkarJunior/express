@@ -7,9 +7,9 @@ exports.getRates = exports.getRatesData = exports.createUser = exports.getUserLo
 const mysql2_1 = __importDefault(require("mysql2"));
 function DBConnection() {
     return mysql2_1.default.createConnection({
-        host: "localhost",
-        user: "root",
-        password: "admin",
+        host: "ls-65276eff769540c8ea5a37c47c6ff839f83c10e0.c0pcvmzezm97.us-east-1.rds.amazonaws.com",
+        user: "dbmasteruser",
+        password: "xwo=Am?8h?m~pkZ%wX=FLQ%}X.l1T=_h",
         database: "exchange"
     });
 }
