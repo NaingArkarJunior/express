@@ -5,11 +5,19 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getRates = exports.getRatesData = exports.createUser = exports.getUserLogin = void 0;
 const mysql2_1 = __importDefault(require("mysql2"));
+// function DBConnection(){
+//     return mysql.createConnection({
+//       host:"localhost",
+//       user:"root",
+//       password:"admin",
+//       database:"exchange"
+//     })
+// }
 function DBConnection() {
     return mysql2_1.default.createConnection({
-        host: "ls-65276eff769540c8ea5a37c47c6ff839f83c10e0.c0pcvmzezm97.us-east-1.rds.amazonaws.com",
+        host: "ls-7c928d8727e366a0d534e5224a354ca49752882b.cr89if9deexb.ap-south-1.rds.amazonaws.com",
         user: "dbmasteruser",
-        password: "xwo=Am?8h?m~pkZ%wX=FLQ%}X.l1T=_h",
+        password: "OKzr%o}tK;iS_[QV.y#3-9H_t#EH6%gF",
         database: "exchange"
     });
 }
