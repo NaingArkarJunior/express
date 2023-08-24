@@ -33,8 +33,9 @@ const newUserRegister = (param) => {
 
 const getRatesList = () => {
     return new Promise((resolve,reject)=>{
-        instance.get("ratesdata")
+        instance.get("rates/last")
             .then(response=> resolve(response.data))
+            .then(console.log(data))
             .catch(error=> {
             reject(error);
             })

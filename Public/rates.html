@@ -34,24 +34,38 @@
 <script src="./apicall.js" ></script>
   <script>
             let data = getRatesList()
+            console.log(data)
             .then(data=>{
                 console.log(data)
-                // ratesListTable(data)
+                generateUI(data)
             })
             .catch(error=>{
                 console.warn(error)
             })
     
-        // const ratesListTable = (data= [{_id,,}]) =>{
-        //     data.map((row,index)=>{
-        //         $("#Rates_list").append(`
-        //             <tr>
-        //                 <td>${row.}</td>      
-        //                 <td>${row.}</td>
-        //                 <td>${row.}</td>
-        //             </tr>
-        //         `)
-        //     })
-        // }
+            function generateUI(rates,usd) {
+            let arr = (Object.keys(rates))
+            $(document).ready(() => {
+              arr.map((key, index) => {
+                let result = key[0] + key[1]
+                let finalString = `D:\\projects\\Exchange\\flags\\3x2\\${result}.svg`
+                $("#Rates_list").append(
+                  ` <tr>
+                      <td></td>
+                      <td>
+                          <img src="${finalString}" class="rounded" alt="Cinque Terre" style="width: 35px;height: 35px;margin-right: 10px;">
+                          ${countryNames[key]}
+                        </td>
+                      <td><span class="rateText">${(usd/rates[key]).toFixed(2) }</span>
+                        <br />
+                        <span class="currencyInfoText">${key} / MMK</span>
+                      </td>    
+                    </tr>
+                    `
+                )
+
+              })
+            })
+          }
   </script>
 </html> 
